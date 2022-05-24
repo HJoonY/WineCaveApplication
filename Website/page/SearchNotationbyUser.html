@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "ISO-8859-1"/>
+    <title>SearchNotationbyUser</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style/SearchNotationbyUser.css" />
+
+    <script>
+        $(document).ready(function() {
+            $("button").click(function () {
+                address = "http://localhost:8082/notation/user/" + $('#User_Id').val();
+                console.log(address)
+                $.ajax({
+                        type: "GET",
+                        url: address,
+                        success: function (data, textStatus, jqXHR) {
+                            console.log("success");
+                            alert("success")
+                            $.getJSON(address, function(result){
+                                console.log(result);
+                                $.each(result, function(key,value) {
+                                    $("#NotationList").append('<h3>'+'User id : ' + value.user_id +'</h3>')
+                                    $("#NotationList").append('<div>'+ 'wine id : '+value.wine_id +'</div>')
+                                    $("#NotationList").append('<div>'+ 'Notation_date : ' + value.Notation_date+'</div>')
+                                    $("#NotationList").append('<div>'+ 'Notation_Smell : ' + value.Notation_Smell +'</div>')
+                                    $("#NotationList").append('<div>'+ 'Notation_Taste : ' + value.Notation_Taste +'</div>')
+                                    $("#NotationList").append('<div>'+ 'Notation_Note : ' + value.Notation_Note +'</div>')
+
+                                });
+                            });
+                        },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log("error");
+                        alert("error : " + errorThrown)
+                    }
+
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+<div class="SearchNotationbyUser">
+    <img class="SearchNotationbyUser-img" src="../assets/images/notation.jpeg">
+<h1>Search Notation by User Id </h1>
+<table border="1">
+<tr>
+    <th>Enter User id </th>
+    <td><input type="text" id="User_Id" ></td>
+</tr>
+    <td colspan="2">
+<button>Ok </button>
+</table>
+    <ul>
+        <li><a href="home.html"><div class="button">Back to Home</div></a></li>
+    </ul>
+    <div class="footer">
+        <p>by Hyun joon YOO</p>
+    </div>
+</div>
+<div id = "NotationList"> </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+.addUser{
+    color: darkred;
+
+}
+
+.addUser h1{
+    text-align: center;
+    background-color: white;
+}
+
+.addUser a{
+    text-decoration: none !important;
+    color: white;
+}
+.addUser table{
+    background-color: white;
+}
+.addUser tr{
+    text-align: center;
+    color: darkred;
+    background-color: white;
+}
+
+
+.addUser ul{
+    list-style-type: none;
+}
+
+
+.addUser .button{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: darkred;
+}
+
+
+.addUser a:hover{
+    font-weight: bold;
+}
+
+.addUser-img {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+
+.footer{
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    text-align: right;
+
+}
+.footer p{
+    margin-right: 20px;
+    background-color: white;
+}

@@ -1,0 +1,54 @@
+.home{
+    color: white;
+}
+
+.home h1{
+    text-align: center;
+}
+
+.home a{
+    text-decoration: none !important;
+    color: white;
+}
+
+.home ul{
+    list-style-type: none;
+}
+
+
+.home .button{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: darkred;
+}
+
+
+.home a:hover{
+    font-weight: bold;
+}
+
+.home-img {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+
+.footer{
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    text-align: right;
+
+}
+.footer p{
+    margin-right: 20px;
+}

@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "ISO-8859-1"/>
+    <title>delete notation</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style/deleteNotation.css" />
+
+    <script>
+
+        $(document).ready(function(){
+            $("button").click(function(){
+                address = "http://localhost:8082/notation/"+$('#notation_id').val();
+                console.log(address)
+                $.ajax({
+                    type: "DELETE",
+                    url: address,
+                    success: function(data, textStatus, jqXHR){
+                        console.log("success");
+                        alert("success")
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        console.log("error");
+                        alert("error : " + errorThrown)
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="deleteNotation">
+    <img class="deleteNotation-img" src="../assets/images/notation.jpeg">
+<h1>Delete Notation </h1>
+<table border="1">
+<tr>
+    <th>Enter notation id </th>
+    <td><input type="text" id="notation_id" ></td>
+</tr>
+    <td colspan="2">
+<button>Ok </button>
+</table>
+    <ul>
+        <li><a href="home.html"><div class="button">Back to Home</div></a></li>
+    </ul>
+    <div class="footer">
+        <p>by Hyun joon YOO</p>
+    </div>
+</div>
+</body>
+</html>

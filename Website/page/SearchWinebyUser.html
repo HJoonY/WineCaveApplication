@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "ISO-8859-1"/>
+    <title>SearchWinebyUser</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style/SearchWinebyUser.css" />
+
+    <script>
+        $(document).ready(function() {
+            $("button").click(function () {
+                address = "http://localhost:8082/wine/user/" + $('#User_Id').val();
+                console.log(address)
+
+                $.ajax({
+                    type: "GET",
+                    url: address,
+                    success: function (data, textStatus, jqXHR) {
+                        console.log("success");
+                        alert("success")
+                        $.getJSON(address, function(result){
+                            console.log(result);
+                            $.each(result, function(key,value) {
+                                $("#WineList").append('<h3>'+'User id : '+value.user_id +'</h3>')
+                                $("#WineList").append('<div>'+ 'wine id : '+value.wine_id +'</div>')
+                                $("#WineList").append('<div>'+ 'wine name : '+value.Wine_name+'</div>')
+                                $("#WineList").append('<div>'+ 'wine type : '+value.wine_type+'</div>')
+                                $("#WineList").append('<div>'+ 'wine color : '+value.wine_Color+'</div>')
+                                $("#WineList").append('<div>'+ 'wine Millesime : '+value.wine_Millesime+'</div>')
+                                $("#WineList").append('<div>'+ 'wine Region : '+value.wine_Region+'</div>')
+                            });
+                        });
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log("error");
+                        alert("error : " + errorThrown)
+                    }
+
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+<div class="SearchWinebyUser">
+    <img class="SearchWinebyUser-img" src="../assets/images/wine.jpeg">
+<h1>Search Wine by User Id </h1>
+<table border="1">
+<tr>
+    <th>Enter User id </th>
+    <td><input type="text" id="User_Id" ></td>
+</tr>
+    <td colspan="2">
+<button>Ok </button>
+</table>
+<ul>
+    <li><a href="home.html"><div class="button">Back to Home</div></a></li>
+</ul>
+<div class="footer">
+    <p>by Hyun joon YOO</p>
+</div>
+    <div id = "WineList"> </div>
+</div>
+</body>
+</html>

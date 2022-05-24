@@ -1,0 +1,58 @@
+
+.AllNotationList h1{
+    text-align: center;
+    background-color: White;
+    color: darkred;
+}
+
+.AllNotationList a{
+    text-decoration: none !important;
+    color: white;
+}
+
+.AllNotationList ul{
+    list-style-type: none;
+}
+
+.AllNotationList .button{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: darkred;
+}
+
+.AllNotationList a:hover{
+    font-weight: bold;
+}
+
+.AllNotationList-img{
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+#NotationList {
+    color: white;
+    background-color: darkred;
+    width: 200px;
+    text-align: center;
+
+}
+
+.footer{
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    text-align: right;
+
+}
+.footer p{
+    margin-right: 20px;
+}

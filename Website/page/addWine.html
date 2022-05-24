@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "ISO-8859-1"/>
+    <title>Add New Wine</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style/addWine.css" />
+
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                var wine = {
+                    "user_id": $('#user_id').val(),
+                    "Wine_name": $('#Wine_name').val(),
+                    "wine_type": $('#wine_type').val(),
+                    "wine_Color": $('#wine_Color').val(),
+                    "wine_Millesime": $('#wine_Millesime').val(),
+                    "wine_Region": $('#wine_Region').val()
+                }
+                console.log(JSON.stringify(wine))
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8082/wine",
+                    data: JSON.stringify(wine),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function(data, textStatus, jqXHR){
+                        console.log("success");
+                        $.getJSON("http://localhost:8082/wines", function(result){
+                            console.log(result);
+                            $.each(result, function(key,value) {
+                                if(value.user_id === data.user_id)
+                                    if(value.Wine_name === data.Wine_name) ///// ca marche pas ici. a partir de ici
+                                    alert("Your wine id "+value.wine_id);
+                            });
+                        });
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        console.log("error");
+                        alert("error : " + errorThrown)
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="addWine">
+    <img class="addWine-img" src="../assets/images/wine.jpeg">
+
+<h1>New Wine </h1>
+<table border="1">
+<tr>
+    <th>user_id</th>
+    <td><input type="text" id="user_id" ></td>
+</tr>
+<tr>
+    <th>Wine_name</th>
+    <td><input type="text" id="Wine_name" ></td>
+</tr>
+<tr>
+    <th>wine_type</th>
+    <td><input type="text" id="wine_type" ></td>
+</tr>
+<tr>
+    <th>wine_Color</th>
+    <td><input type="text" id="wine_Color" ></td>
+</tr>
+    <tr>
+    <th>wine_Millesime</th>
+    <td><input type="text" id="wine_Millesime" ></td>
+</tr>
+    <tr>
+        <th>wine_Region</th>
+        <td><input type="text" id="wine_Region" ></td>
+    </tr>
+    <td colspan="2">
+<button>Ok </button>
+</table>
+    <ul>
+        <li><a href="home.html"><div class="button">Back to Home</div></a></li>
+    </ul>
+    <div class="footer">
+        <p>by Hyun joon YOO</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+.deleteWine{
+    color: darkred;
+
+}
+
+.deleteWine h1{
+    text-align: center;
+    background-color: white;
+}
+
+.deleteWine a{
+    text-decoration: none !important;
+    color: white;
+}
+.deleteWine table{
+    background-color: white;
+}
+.deleteWine tr{
+    text-align: center;
+    color: darkred;
+    background-color: white;
+}
+
+.deleteWine ul{
+    list-style-type: none;
+}
+
+.deleteWine .button{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: darkred;
+}
+
+.deleteWine a:hover{
+    font-weight: bold;
+}
+
+.deleteWine-img {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+
+.footer{
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    text-align: right;
+
+}
+.footer p{
+    margin-right: 20px;
+    background-color: white;
+}

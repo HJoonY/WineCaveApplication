@@ -1,0 +1,73 @@
+.SearchNotationbyUser{
+    color: darkred;
+
+}
+
+.SearchNotationbyUser h1{
+    text-align: center;
+    background-color: white;
+}
+
+.SearchNotationbyUser a{
+    text-decoration: none !important;
+    color: white;
+}
+.SearchNotationbyUser table{
+    background-color: white;
+}
+.SearchNotationbyUser tr{
+    text-align: center;
+    color: darkred;
+    background-color: white;
+}
+
+
+.SearchNotationbyUser ul{
+    list-style-type: none;
+}
+
+
+.SearchNotationbyUser .button{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: darkred;
+}
+
+#NotationList {
+    color: white;
+    background-color: darkred;
+    width: 200px;
+    text-align: center;
+
+}
+
+.SearchNotationbyUser a:hover{
+    font-weight: bold;
+}
+
+.SearchNotationbyUser-img {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+
+.footer{
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    text-align: right;
+
+}
+.footer p{
+    margin-right: 20px;
+    background-color: white;
+}

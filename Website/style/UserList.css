@@ -1,0 +1,54 @@
+
+.UserList h1{
+    text-align: center;
+    color: White;
+}
+
+.UserList a{
+    text-decoration: none !important;
+    color: white;
+}
+
+.UserList ul{
+    list-style-type: none;
+}
+
+.UserList .button{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: darkred;
+}
+
+.UserList a:hover{
+    font-weight: bold;
+}
+
+.UserList-img{
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+#UserList {
+    color: white;
+    background-color: darkred;
+    width: 300px;
+}
+
+.footer{
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    text-align: right;
+
+}
+.footer p{
+    margin-right: 20px;
+}

@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "ISO-8859-1"/>
+    <title>delete User</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style/deleteUser.css" />
+
+    <script>
+
+        $(document).ready(function(){
+            $("button").click(function(){
+                address = "http://localhost:8082/user/"+$('#user_id').val();
+                address2 = "http://localhost:8082/wine/user/" + $('#user_id').val();
+                address3 = "http://localhost:8082/notation/user/" + $('#user_id').val();
+                console.log(address)
+                $.ajax({
+                    type: "DELETE",
+                    url: address,
+                    success: function(data, textStatus, jqXHR){
+                        console.log("success");
+                        $.ajax({
+                            type: "GET",
+                            url:address2,
+                            success: function (data, textStatus, jqXHR) {
+                                $.getJSON(address2, function(result){
+                                    console.log(result);
+                                    $.each(result, function(key,value) {
+                                        address4 = "http://localhost:8082/wine/"+value.wine_id;
+                                        $.ajax({
+                                            type: "DELETE",
+                                            url: address4
+                                        });
+
+                                    });
+                                });
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                console.log("error");
+                                alert("error : " + errorThrown)
+                            }
+
+                        });
+                        alert("success")
+                        $.ajax({
+                            type: "GET",
+                            url:address3,
+                            success: function (data, textStatus, jqXHR) {
+                                $.getJSON(address3, function(result){
+                                    console.log(result);
+                                    $.each(result, function(key,value) {
+                                        address5 = "http://localhost:8082/notation/"+value.notation_id;
+                                        $.ajax({
+                                            type: "DELETE",
+                                            url: address5
+                                        });
+
+                                    });
+                                });
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                console.log("error");
+                                alert("error : " + errorThrown)
+                            }
+
+                        });
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        console.log("error");
+                        alert("error : " + errorThrown)
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="deleteUSer">
+    <img class="deleteUser-img" src="../assets/images/user.jpeg">
+<h1>Delete User </h1>
+<table border="1">
+<tr>
+    <th>Delete User id </th>
+    <td><input type="text" id="user_id" ></td>
+</tr>
+    <td colspan="2">
+<button>Ok </button>
+</table>
+    <ul>
+        <li><a href="home.html"><div class="button">Back to Home</div></a></li>
+    </ul>
+    <div class="footer">
+        <p>by Hyun joon YOO</p>
+    </div>
+    <div id = "NotationList"> </div>
+
+</div>
+</body>
+</html>

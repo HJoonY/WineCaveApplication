@@ -1,0 +1,66 @@
+.addNotation{
+    color: darkred;
+
+}
+
+.addNotation h1{
+    text-align: center;
+    background-color: white;
+}
+
+.addNotation a{
+    text-decoration: none !important;
+    color: white;
+}
+.addNotation table{
+    background-color: white;
+}
+.addNotation tr{
+    text-align: center;
+    color: darkred;
+    background-color: white;
+}
+
+
+.addNotation ul{
+    list-style-type: none;
+}
+
+
+.addNotation .button{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: darkred;
+}
+
+
+.addNotation a:hover{
+    font-weight: bold;
+}
+
+.addNotation-img{
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+
+.footer{
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    text-align: right;
+
+}
+.footer p{
+    margin-right: 20px;
+    background-color: white;
+}

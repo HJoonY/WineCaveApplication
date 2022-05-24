@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "ISO-8859-1"/>
+    <title>Add Notation</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style/addNotation.css" />
+
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                var notation = {
+                    "user_id": $('#user_id').val(),
+                    "wine_id": $('#wine_id').val(),
+                    "Notation_date": $('#Notation_date').val(),
+                    "Notation_Smell": $('#Notation_Smell').val(),
+                    "Notation_Taste": $('#Notation_Taste').val(),
+                    "Notation_Note": $('#Notation_Note').val()
+                }
+                console.log(JSON.stringify(notation))
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8082/notations",
+                    data: JSON.stringify(notation),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function(notation,textStatus, jqXHR){
+                        console.log("success");
+                        alert("Ok! thank you");
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        console.log("error");
+                        alert("error : " + errorThrown);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="addNotation">
+    <img class="addNotation-img" src="../assets/images/notation.jpeg">
+
+<h1>New Notation</h1>
+<table border="1">
+<tr>
+    <th>user_id</th>
+    <td><input type="text" id="user_id" ></td>
+</tr>
+<tr>
+    <th>wine_id</th>
+    <td><input type="text" id="wine_id" ></td>
+</tr>
+<tr>
+    <th>Notation_date (YYYY-MM-DD)</th>
+    <td><input type="text" id="Notation_date" ></td>
+</tr>
+<tr>
+    <th>Notation_Smell</th>
+    <td><input type="text" id="Notation_Smell" ></td>
+</tr>
+    <tr>
+    <th>Notation_Taste</th>
+    <td><input type="text" id="Notation_Taste" ></td>
+</tr>
+    <tr>
+        <th>Notation_Note(1-10)</th>
+        <td><input type="text" id="Notation_Note" ></td>
+    </tr>
+    <td colspan="2">
+<button>Ok </button>
+</table>
+    <ul>
+        <li><a href="home.html"><div class="button">Back to Home</div></a></li>
+    </ul>
+    <div class="footer">
+        <p>by Hyun joon YOO</p>
+    </div>
+</div>
+</body>
+</html>

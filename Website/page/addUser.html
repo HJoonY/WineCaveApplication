@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "ISO-8859-1"/>
+    <title>Add User</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style/addUser.css" />
+
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+
+                var user = {
+                    "User_Fname": $('#User_Fname').val(),
+                    "User_Lname": $('#User_Lname').val(),
+                    "User_Email": $('#User_Email').val(),
+                    "User_PassWord": $('#User_PassWord').val()
+                }
+                console.log(JSON.stringify(user))
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8082/users",
+                    data: JSON.stringify(user),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function(data, textStatus, jqXHR){
+                        console.log("success");
+
+                        $.getJSON("http://localhost:8082/users", function(result){
+                            console.log(result);
+                            $.each(result, function(key,value) {
+                                if(value.user_Email === data.User_Email)
+                                    alert("Welcome "+value.User_Fname +" " +" your user_id is "+value.user_id);
+                            });
+                        });
+
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        console.log("error");
+                        alert("error : " + errorThrown)
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="addUser">
+    <img class="addUser-img" src="../assets/images/user.jpeg">
+
+    <h1>New User </h1>
+<table border="1">
+<tr>
+    <th>User First name</th>
+    <td><input type="text" id="User_Fname" ></td>
+</tr>
+<tr>
+    <th>User Last name</th>
+    <td><input type="text" id="User_Lname" ></td>
+</tr>
+<tr>
+    <th>User Email</th>
+    <td><input type="text" id="User_Email" ></td>
+</tr>
+<tr>
+    <th>User PassWord</th>
+    <td><input type="password" id="User_PassWord" ></td>
+</tr>
+    <td colspan="2">
+<button>Ok </button>
+</table>
+    <ul>
+        <li><a href="home.html"><div class="button">Back to Home</div></a></li>
+    </ul>
+    <div class="footer">
+        <p>by Hyun joon YOO</p>
+    </div>
+</div>
+</body>
+</html>

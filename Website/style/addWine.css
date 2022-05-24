@@ -1,0 +1,66 @@
+.addWine{
+    color: darkred;
+
+}
+
+.addWine h1{
+    text-align: center;
+    background-color: white;
+}
+
+.addWine a{
+    text-decoration: none !important;
+    color: white;
+}
+.addWine table{
+    background-color: white;
+}
+.addWine tr{
+    text-align: center;
+    color: darkred;
+    background-color: white;
+}
+
+
+.addWine ul{
+    list-style-type: none;
+}
+
+
+.addWine .button{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: darkred;
+}
+
+
+.addWine a:hover{
+    font-weight: bold;
+}
+
+.addWine-img {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+
+.footer{
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    text-align: right;
+
+}
+.footer p{
+    margin-right: 20px;
+    background-color: white;
+}
